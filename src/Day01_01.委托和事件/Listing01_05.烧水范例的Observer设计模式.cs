@@ -99,8 +99,10 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_05
         {
             //对象实例化,原本有三个对象实例化,但因为显示方法为静态无需实例化
             Heater heater = new Heater();
-            Alarm alarm = new Alarm();
-            heater.BoilWaterEvent += alarm.MarkAlert;
+            //Alarm alarm = new Alarm();
+            //heater.BoilWaterEvent += alarm.MarkAlert;
+            //给匿名对象注册事件的方法
+            heater.BoilWaterEvent += (new Alarm()).MarkAlert;
             heater.BoilWaterEvent += Display.ShowTemperature;
             //烧水,会自动调用注册过事件的方法
             heater.BoilWater();
