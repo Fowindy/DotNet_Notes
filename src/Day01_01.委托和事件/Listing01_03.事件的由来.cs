@@ -24,11 +24,8 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_03
         public static void Main()
         {
             GreetingManager gm= new GreetingManager();
-            gm.GreetPeople("Sunny", EnglishGreeting);
-
-            GreetingDelegate greetingDelegate;
-            greetingDelegate = ChineseGreeting;
-            greetingDelegate("王岳");
+            gm.greetingDelegate = ChineseGreeting;
+            gm.GreetPeople("王岳");
             Console.ReadKey();
         }
     }
