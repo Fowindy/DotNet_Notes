@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01_01.委托和事件", "src\Day01_01.委托和事件\Day01_01.委托和事件.csproj", "{D026E2C4-ED70-4C3B-84C8-DCD5D4EBE8FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01_02.委托和事件2", "src\Day01_02.委托和事件2\Day01_02.委托和事件2.csproj", "{54F178C1-6108-41CE-8E70-7880D4ADE7C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D026E2C4-ED70-4C3B-84C8-DCD5D4EBE8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D026E2C4-ED70-4C3B-84C8-DCD5D4EBE8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D026E2C4-ED70-4C3B-84C8-DCD5D4EBE8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54F178C1-6108-41CE-8E70-7880D4ADE7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F178C1-6108-41CE-8E70-7880D4ADE7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F178C1-6108-41CE-8E70-7880D4ADE7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F178C1-6108-41CE-8E70-7880D4ADE7C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
