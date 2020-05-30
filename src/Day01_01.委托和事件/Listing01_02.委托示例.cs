@@ -47,8 +47,17 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_02
         }
         public static void Main()
         {
-            GreetPeople("Mark", EnglishGreeting);
-            GreetPeople("马云", ChineseGreeting);
+            #region 委托第一种实现方式
+            GreetPeople("Mark1", EnglishGreeting);
+            GreetPeople("马云1", ChineseGreeting);
+            #endregion
+            #region 委托第二种实现方式_可以节省一个GreetPeople方法
+            GreetingDelegate greetingDelegate1, greetingDelegate2;
+            greetingDelegate1 = EnglishGreeting;
+            greetingDelegate2 = ChineseGreeting;
+            greetingDelegate1("Mark2");
+            greetingDelegate2("马云2");
+            #endregion
             Console.ReadKey();
             /************************************************************************/
             /* 委托总结:
