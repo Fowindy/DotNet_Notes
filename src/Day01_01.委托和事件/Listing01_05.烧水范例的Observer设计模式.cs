@@ -22,16 +22,35 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_05
     public class Heater
     {
         /// <summary>
+        /// 在Subject监视对象中声明委托
+        /// </summary>
+        /// <param name="temperature">水温</param>
+        public delegate void BoilWaterHandler(int temperature);
+        /// <summary>
+        /// 在Subject监视对象中声明事件
+        /// </summary>
+        public event BoilWaterHandler BoilWaterEvent;
+        /// <summary>
         /// 温度变量
         /// </summary>
         private int temperature;
         /// <summary>
         /// 烧水方法
         /// </summary>
-        private void BoilWater()
+        public void BoilWater()
         {
             for (int i = 0; i <= 100; i++)
+            {
                 temperature = i;
+                //水温大于95触发委托事件
+                if (temperature > 95)
+                {
+                    if (BoilWaterEvent != null)     //如果有事件注册
+                    {
+                        BoilWaterEvent(temperature);    //调用所有注册事件的方法
+                    }
+                }
+            }
         }
     }
     /// <summary>
@@ -43,7 +62,7 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_05
         /// 报警的方法
         /// </summary>
         /// <param name="temperature">温度</param>
-        private void MarkAlert(int temperature)
+        public void MarkAlert(int temperature)
         {
             Console.WriteLine("Alarm:滴滴滴,水已经{0}度了;",temperature);
         }
@@ -54,10 +73,10 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_05
     public class Display
     {
         /// <summary>
-        /// 显示温度的方法
+        /// 显示温度的[静态]方法
         /// </summary>
         /// <param name="temperature">水温</param>
-        private void ShowTemperature(int temperature)
+        public static void ShowTemperature(int temperature)
         {
             Console.WriteLine("Display:水快烧开了,当前温度:{0}.",temperature);
         }
@@ -78,6 +97,14 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_05
     {
         public static void Main()
         {
+            //对象实例化,原本有三个对象实例化,但因为显示方法为静态无需实例化
+            Heater heater = new Heater();
+            Alarm alarm = new Alarm();
+            heater.BoilWaterEvent += alarm.MarkAlert;
+            heater.BoilWaterEvent += Display.ShowTemperature;
+            //烧水,会自动调用注册过事件的方法
+            heater.BoilWater();
+            Console.ReadKey();
         }
     }
 }
