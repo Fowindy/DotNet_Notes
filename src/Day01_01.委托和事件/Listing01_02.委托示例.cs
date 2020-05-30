@@ -47,16 +47,25 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_02
         }
         public static void Main()
         {
+            Console.WriteLine("------委托第一种实现方式------");
             #region 委托第一种实现方式
             GreetPeople("Mark1", EnglishGreeting);
             GreetPeople("马云1", ChineseGreeting);
             #endregion
+            Console.WriteLine("------委托第二种实现方式_可以节省一个GreetPeople方法------");
             #region 委托第二种实现方式_可以节省一个GreetPeople方法
             GreetingDelegate greetingDelegate1, greetingDelegate2;
             greetingDelegate1 = EnglishGreeting;
             greetingDelegate2 = ChineseGreeting;
             greetingDelegate1("Mark2");
             greetingDelegate2("马云2");
+            #endregion
+            Console.WriteLine("------多个方法绑定到同一个委托,依次调用其所绑定的方法------");
+            #region 多个方法绑定到同一个委托,依次调用其所绑定的方法
+            GreetingDelegate greetingDelegate3;
+            greetingDelegate3 = EnglishGreeting;
+            greetingDelegate3 += ChineseGreeting;
+            greetingDelegate3("Mark3"); 
             #endregion
             Console.ReadKey();
             /************************************************************************/
