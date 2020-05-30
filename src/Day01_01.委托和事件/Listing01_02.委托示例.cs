@@ -65,7 +65,13 @@ namespace Fowindy.Day01_01.委托和事件.Listing01_02
             GreetingDelegate greetingDelegate3;
             greetingDelegate3 = EnglishGreeting;
             greetingDelegate3 += ChineseGreeting;
-            greetingDelegate3("Mark3"); 
+            greetingDelegate3("Mark3");
+            #endregion
+            Console.WriteLine("多个方法绑定到同一个委托,依次调用其所绑定的方法_简化版");
+            #region 多个方法绑定到同一个委托,依次调用其所绑定的方法_简化版
+            GreetingDelegate greetingDelegate4 = new GreetingDelegate(EnglishGreeting);
+            greetingDelegate4 += ChineseGreeting;
+            greetingDelegate4("Mark4");
             #endregion
             Console.ReadKey();
             /************************************************************************/
