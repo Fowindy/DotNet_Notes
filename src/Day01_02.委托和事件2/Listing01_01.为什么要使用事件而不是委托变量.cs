@@ -33,8 +33,13 @@ namespace Fowindy.Day01_02.委托和事件2.Listing01_01
         /// <summary>
         /// 声明委托变量
         /// </summary>
-        public NumberChangedEventHandler NumberChanged;
-        public void DoSomething()
+        //public NumberChangedEventHandler NumberChanged;
+
+        /// <summary>
+        /// 声明事件
+        /// </summary>
+        public event NumberChangedEventHandler NumberChanged;
+        public void DoSomething(int count)
         {
             if (NumberChanged != null)
             {
@@ -61,7 +66,8 @@ namespace Fowindy.Day01_02.委托和事件2.Listing01_01
             Subscriber subscriber = new Subscriber();
 
             publisher.NumberChanged += new NumberChangedEventHandler(subscriber.OnNumberChanged);
-            publisher.DoSomething();    // 应该通过DoSomething()来触发事件
+            publisher.DoSomething(100);    // 应该通过DoSomething()来触发事件
+            publisher.DoSomething(103);    // 应该通过DoSomething()来触发事件
             /************************************************************************/
             /* 客户端直接通过委托变量触发事件,将会影响到所有注册了该委托的订阅者
              * 事件的本意应该为在事件发布者在其本身的某个行为中触发,比如说在方法DoSomething()中满足某个条件后触发
@@ -70,8 +76,8 @@ namespace Fowindy.Day01_02.委托和事件2.Listing01_01
                事件只能在事件发布者Publisher类的内部触发
                订阅事件的方法的命名，通常为“On事件名”*/
             /************************************************************************/
-            publisher.NumberChanged(100);   // 但可以被这样直接调用，对委托变量的不恰当使用
-            publisher.NumberChanged(98);
+            //publisher.NumberChanged(100);   // 但可以被这样直接调用，对委托变量的不恰当使用
+            //publisher.NumberChanged(98);
         }
     }
 }
